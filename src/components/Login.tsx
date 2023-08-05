@@ -7,6 +7,11 @@ export default function Login() {
   if (session) {
     router.push("/profile");
   }
+  console.log(
+    process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+    "------------",
+    process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET
+  );
   return (
     <>
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -25,9 +30,9 @@ export default function Login() {
             <g
               id="Icons"
               stroke="none"
-              stroke-width="1"
+              strokeWidth="1"
               fill="none"
-              fill-rule="evenodd"
+              fillRule="evenodd"
             >
               {" "}
               <g id="Color-" transform="translate(-401.000000, -860.000000)">
