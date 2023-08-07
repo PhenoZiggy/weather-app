@@ -48,7 +48,7 @@ const Index = () => {
         </div>
       </div>
       <div className="">
-        <input></input>
+        <button className="bg-green-500 w-20 py-1 rounded-md">Test</button>
       </div>
     </div>
   );
