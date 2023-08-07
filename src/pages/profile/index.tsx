@@ -11,6 +11,17 @@ const Index = () => {
   const [currentHeight, setCurrentHeight] = useState<number>();
   const [state, setState] = useState<string>();
 
+  const styles: React.CSSProperties = {
+    position: "absolute",
+    bottom: "-26vh",
+    left: 0,
+    right: 0,
+    margin: 0,
+    background: "#ffffff", // Replace with your color variable
+    padding: "0.75rem",
+    textAlign: "center",
+  };
+
   useEffect(() => {
     const handleResize = () => {
       setCurrentHeight(window.innerHeight);
@@ -80,7 +91,7 @@ const Index = () => {
           <Weather />
         </div>
       </div>
-      <div className="">
+      <div style={styles} className="mb-sticky-footer">
         <button className="bg-green-500 w-20 py-1 rounded-md">Test</button>
       </div>
     </div>
