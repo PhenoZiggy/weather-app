@@ -22,7 +22,7 @@ const Index = () => {
         setState("not" + window.screen.height);
       }
     }
-  }, [initialSize]);
+  }, [initialSize, window.screen.height]);
 
   return (
     <div className="flex flex-col justify-between items-center h-screen">
