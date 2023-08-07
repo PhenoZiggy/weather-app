@@ -8,7 +8,23 @@ const Index = () => {
   const router = useRouter();
   const { data } = useSession();
   const [initialSize, setInitialSize] = useState<number>();
+  const [currentHeight, setCurrentHeight] = useState<number>();
   const [state, setState] = useState<string>();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setCurrentHeight(window.screen.height);
+      // Add other logic here if needed
+    };
+    // Initial log
+    // Attach event listener
+    window.addEventListener("resize", handleResize);
+    // Cleanup function
+    return () => {
+      // Remove event listener during cleanup
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     setInitialSize(window.screen.height);
@@ -16,13 +32,13 @@ const Index = () => {
 
   useEffect(() => {
     if (initialSize) {
-      if (initialSize != window.screen.height) {
+      if (initialSize != currentHeight) {
         setState("PopUp" + window.screen.height);
-      } else if (initialSize === window.screen.height) {
+      } else if (initialSize === currentHeight) {
         setState("not" + window.screen.height);
       }
     }
-  }, [initialSize, window.screen.height]);
+  }, [initialSize, currentHeight]);
 
   return (
     <div className="flex flex-col justify-between items-center h-screen">
