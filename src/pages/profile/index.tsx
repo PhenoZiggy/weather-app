@@ -2,11 +2,27 @@
 import Weather from "@/components/weather";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const Index = () => {
   const router = useRouter();
   const { data } = useSession();
+  const [initialSize, setInitialSize] = useState<number>();
+  const [state, setState] = useState<string>();
+
+  useEffect(() => {
+    setInitialSize(window.screen.height);
+  }, []);
+
+  useEffect(() => {
+    if (initialSize) {
+      if (initialSize != window.screen.height) {
+        setState("PopUp");
+      } else if (initialSize === window.screen.height) {
+        setState("not");
+      }
+    }
+  }, [initialSize]);
 
   return (
     <div className="flex flex-col justify-between items-center h-screen">
