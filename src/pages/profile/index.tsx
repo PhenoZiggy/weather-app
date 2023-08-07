@@ -17,9 +17,9 @@ const Index = () => {
   useEffect(() => {
     if (initialSize) {
       if (initialSize != window.screen.height) {
-        setState("PopUp");
+        setState("PopUp" + window.screen.height);
       } else if (initialSize === window.screen.height) {
-        setState("not");
+        setState("not" + window.screen.height);
       }
     }
   }, [initialSize]);
