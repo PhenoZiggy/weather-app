@@ -12,8 +12,8 @@ const Index = () => {
   const [state, setState] = useState<string>();
 
   const styles: React.CSSProperties = {
-    position: "absolute",
-    bottom: "-26vh",
+    position: "fixed",
+    bottom: 0,
     left: 0,
     right: 0,
     margin: 0,
