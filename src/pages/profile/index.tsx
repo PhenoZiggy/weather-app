@@ -13,7 +13,7 @@ const Index = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setCurrentHeight(window.screen.height);
+      setCurrentHeight(window.innerHeight);
       // Add other logic here if needed
     };
     // Initial log
@@ -33,9 +33,9 @@ const Index = () => {
   useEffect(() => {
     if (initialSize) {
       if (initialSize != currentHeight) {
-        setState("PopUp" + window.screen.height);
+        setState("PopUp" + window.innerHeight);
       } else if (initialSize === currentHeight) {
-        setState("not" + window.screen.height);
+        setState("not" + window.innerHeight);
       }
     }
   }, [initialSize, currentHeight]);
